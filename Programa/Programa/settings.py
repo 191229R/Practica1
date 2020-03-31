@@ -25,7 +25,7 @@ SECRET_KEY = 'kg3^+1otfphdnwa*ix9-pj$dk&5o62fcx@_qf%eu&()+r^!x+t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'Login',
+    'Dashboard',
+    'Landing',
   
 ]
 
@@ -76,13 +78,24 @@ WSGI_APPLICATION = 'Programa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+#DATABASES = {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+  #  }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Programa',
+        'USER' : 'postgres',
+        'PASSWORD': '12345890',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
+LOGIN_URL = '/Login/'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

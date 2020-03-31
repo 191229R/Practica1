@@ -1,32 +1,23 @@
 from django.shortcuts import render
 from django.views.generic import View
-#importar metodo de autotenticaion
+
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 
-#Create your views here.
-# def Login(request):
-#     return render(request,'Login.html',{})
-# def Landing(request):
-#     return render(request,'Landing.html',{})
-
-
-class LandingClass(View):
-    templates = 'Landing/Landing.html'
-    def get(self, request, *args, **kargs ):
-        return render(request, self.templates,{})
-
-class DashboardClass(View):
-    template_oke = 'Dashboard/dashboard.html'
-    def get(self, request, *args, **kargs ):
-        return render(request, self.template_oke,{})
-
+from django.contrib.auth import login as login_django
 class LoginClass(View):
     templates = 'Login/Login.html'
-    template_oke='Dashboard/dashboard.html'
+    template_ok='Landing/Landing.html'
 
     def get(self, request, *args, **kargs ):
-        return render(request, self.templates,{} )
+
+        if request.user.is_authenticated:
+            next_url = request.GET.get('next')
+            if next_url:
+                return redirect(next_url)
+            else: 
+                return redirect('Dashboard:dashboard')
+        return render(request, self.templates,{})
 
     def post(self, request, *args, **kargs ):
         user_post = request.POST['user']
@@ -35,9 +26,16 @@ class LoginClass(View):
         user_sesion = authenticate(username = user_post, password = password_post)
 
         if user_sesion is not None:
-            return redirect('Login:dashboard')
-            
-            #return render(request, self.template_ok,{} )
+            login_django(
+                request, user_sesion
+            )
+            next_url = request.GET.get('next')
+            if next_url:
+                return redirect(next_url)
+                #return redirect('Login:dashboard')
+            else:
+                return redirect('Dashboard:dashboard')
+                #return render(request, self.template_ok,{} )
         else:
             self.message = 'usuario o cantrasena incorrecto'
 
