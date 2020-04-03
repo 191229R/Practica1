@@ -20,6 +20,7 @@ Including another URLconf
 #     path('admin/', admin.site.urls),
 # ]
 from django.contrib import admin
+from django.contrib.auth.views import logout_then_login
 from django.urls import include, path, re_path
 #URL PADRE 1 PASO
 urlpatterns = [
@@ -27,5 +28,8 @@ urlpatterns = [
     path('', include ('Landing.urls')),
     path('Login/', include ('Login.urls')),
     path('Dashboard/', include ('Dashboard.urls')),
+    path('Registro/', include ('Registro.urls')),
+    path('logout/',logout_then_login,name = 'logout'),
+     
 
 ]

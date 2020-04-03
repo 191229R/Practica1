@@ -8,12 +8,13 @@
     <title>Document</title>
 </head>
 
-<body>
+<body background="https://image.slidesharecdn.com/parkour-150317133351-conversion-gate01/95/parkour-1-638.jpg?cb=1426603225">
+  
     <br>
     <br>
     <br>
-        <div  class="mx-auto border border-primary" style="width: 300px; height: 500px; text-align: center;">
-                <br>
+        <div  class="mx-auto" style="width: 400px; height: 670px; text-align: center; background-color: rgba(255, 255, 255, 0.603);" >
+                <h1>#Parkour</h1>
                 <br>
                 <img src="https://deportesaludable.com/wp-content/uploads/2017/12/parkour.jpg" alt="..." class="rounded-circle" style="width: 200px;">
                 <br>
@@ -35,20 +36,21 @@
                 <br>
                 <br>
                 <div style="text-align: center;">
-                  <button type="submit">Aceptar</button>
-                    <!-- <button type="button" class="btn btn-primary">Aceptar</button> -->
+                  <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+                   <br>
                       {% if error %}
                     <div class="alert alert-warning" role="alert">
                         {{error}}
                     </div>
                      {% endif %}
                   </div>
-                
-                  <br>
                   <br>
               </form>
-              
-              <a href="{% url 'Landing:landing' %}">Ir a Landing</a>
+              <a href="{% url 'Registro:registro' %}" class="btn btn-outline-dark">Registrarse</a>
+              <br>
+              <br>
+              <a href="{% url 'Landing:landing' %}" class="btn btn-outline-dark">Ir a Landing</a>
+              <br>
         
         </div>
       

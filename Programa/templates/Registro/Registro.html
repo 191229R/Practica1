@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+</head>
+
+<body background="https://www.lavozdemedinadigital.com/wordpress/wp-content/uploads/2018/12/parkour.jpg">
+    <br>
+    <br>
+    <br>
+        <div  class="mx-auto" style="width: 350px; height: 700px; text-align: center;  background-color: rgba(255, 255, 255, 0.733);">
+                <br>
+                <br>
+                <img src="https://i1.wp.com/lospleyers.com/wp-content/uploads/2017/08/3b0cf60dcdf50b35a9f67f8eb353340e.jpg?resize=1200%2C720&quality=80&ssl=1" alt="..." class="rounded-circle" style="width: 200px;">
+                <br>
+                <br>
+            <div style="text-align: center;">
+              <form action="" method="POST">
+                  {%csrf_token%}
+                <br>
+                <br>
+              
+               
+                  {% if form_get.username.value %}
+                    {{ form_get.username }}
+                  {% else %}
+                    {{ form_get.username }}
+                  {% endif %}
+                  <br>
+                  {% if form_get.first_name.value %}
+                    {{ form_get.first_name }}
+                  {% else %}
+                    {{ form_get.first_name }}
+                  {% endif %}
+                  <br>
+                  {% if form_get.last_name.value %}
+                    {{ form_get.last_name }}
+                  {% else %}
+                    {{ form_get.last_name }}
+                  {% endif %}
+                  <br>
+                  {% if form_get.password.value %}
+                    {{ form_get.password }}
+                  {% else %}
+                    {{ form_get.password }}
+                  {% endif %}
+                  <br>
+                  {% if form_get.email.value %}
+                    {{ form_get.email }}
+                  {% else %}
+                    {{ form_get.email }}
+                  {% endif %}
+                
+                  <br>
+                  <button type="submit" class="btn btn-primary">Registrarse</button>
+                  <br>
+                  <br>
+                  <a href="{% url 'Login:login' %}" class="btn btn-outline-dark">Canselar</a>
+                  <br>
+                  <br>
+              </form>
+            </div>
+        </div>
+      
+ 
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    
+</body>
